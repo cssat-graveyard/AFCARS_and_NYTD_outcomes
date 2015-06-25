@@ -1,0 +1,97 @@
+---
+title: "Project Scope Document: AFCARS--NYTD"
+author: "Brian Waismeyer"
+date: "June 2, 2015"
+output: 
+  html_document: 
+    keep_md: yes
+    toc: yes
+---
+
+## Document Purpose
+To provide a summary of project goals, intended products, and relevant 
+supporting information. The document is intended ensure the project has a clear
+vision at all stages of development.
+
+## Business Need
+Child welfare programs need to understand what happens to the children in their
+care after the children leave the program. This is important both to evaluate
+the efficacy of the child welfare program and because it creates an opportunity
+for the program to identify predictors of outcomes. Once identified, these
+predictors could be used as starting points for causal inference (e.g., what
+is the program doing that works or fails?) and to assist with profiling risk
+of children currently in the program.
+
+## Project Objectives
+To identify potentially useful associations between recorded characteristics
+of child welfare cases from the [AFCARS dataset](http://www.ndacan.cornell.edu/datasets/pdfs_user_guides/AFCARS_Guide_2000-Present.pdf#)
+and outcomes observed in the [NYTD dataset](http://www.ndacan.cornell.edu/datasets/pdfs_user_guides/182user.pdf).
+
+These associations will be identified by contrasting a variety of model
+selection approaches against each other, evaluating their efficacy, and then
+selecting one model as most appropriate for POC needs.
+
+The data processing and model selection process will be described in a single
+unified report.
+
+A [Multinomial Outcome Simulator (MOS) instance](https://github.com/bwaismeyer/MOS_framework)
+will also be developed for whichever model is selected and the candidate models 
+will be considered for integration with another current POC project.
+
+## Project Goal
+This project will complement ongoing work exploring the efficacy of specific
+interventions on older children (near or greater than 17 years of age) who
+departed child welfare programs across the country in the last several years.
+
+Current work is evaluating the extent to which specific interventions are
+associated with outcomes from the [NYTD dataset](http://www.ndacan.cornell.edu/datasets/pdfs_user_guides/182user.pdf).
+
+This project will add to that work by exploring for possible associations
+between the [AFCARS dataset](http://www.ndacan.cornell.edu/datasets/pdfs_user_guides/AFCARS_Guide_2000-Present.pdf#)
+and the same NYTD outcomes.
+
+The AFCARS dataset has a large number of variables. Those AFCARS cases that are
+also represented in the NYTD dataset will be selected and processed for
+analysis. Then, several distinct model selection approaches will be completed
+and their results contrasted:
+- null baseline
+- intuitive guesses at predictors
+- intuitive stepwise guesses at predictors
+- full/controlled stepwise regression
+- Bayesian model average
+- lasso
+- Gaussian processes
+- random forest
+
+The models will be contrasted as follows:
+- by overlap in model predictors
+- by number of model predictors
+- inferential implications
+- predictive validity
+
+## Audience Definition
+The report is being developed for the POC data analysis team.
+
+The MOS instance is being developed as a proof-of-concept for stakeholders in
+the [COS project](https://github.com/pocdata/COS), with the possibility of
+becoming another Data Portal tool.
+
+## Deliverables
+* An R markdown report documenting all stages of data processing and model
+selection.
+* An MOS instance tailored to one of the selected models.
+
+## Technical Requirements
+* All data processing and analysis completed in R and R markdown.
+* Developed models are mulitnomial and prepared for use with the MOS
+  framework.
+  
+## Milestones
+* Draft project scope
+* Initial data selection
+* Initial data review (develop data processing as needed)
+* Apply model selection techniques (develop data processing as needed)
+* Contrast model selection techniques and select MOS instance model
+* Develop MOS instance
+* Launch instance to POC AWS
+* Assess next steps
